@@ -1,0 +1,14 @@
+
+pipeline {
+
+  agent any
+
+stages {
+  stage("Build"){
+     steps {
+       echo "building the java code"
+       sh ant -f build.xml -v
+    }
+  }
+} 
+}
