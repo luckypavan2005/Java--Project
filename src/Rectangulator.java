@@ -1,6 +1,6 @@
 public class Rectangulator {
 	
-	public statuc void main (string[] args) {
+	public static void main (string[] args) {
 
 		int length = Integer.parseInt(args[0]);
 		int width = Integer.parseInt(args[1]);
