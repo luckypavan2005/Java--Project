@@ -23,6 +23,11 @@ stages {
        sh 'echo "Building the Java Code"'
        sh 'ant -f build.xml -v'
     }
+     post {
+       success{
+         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
+       }
+     }
   }
   stage("deploy"){
 	agent {
@@ -43,11 +48,7 @@ stages {
 
   } 		
 }
-  post {
-   always {
-     archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
-   }
-  }
-
 }
+
+
 
