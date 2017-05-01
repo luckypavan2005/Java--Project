@@ -14,7 +14,7 @@
 
    <target name="clean">
    <delete dir="${build.dir}" />
-    <delete dir="${reportt.dir}" />
+    <delete dir="${report.dir}" />
   </target>
 
   <target name="makedir">
