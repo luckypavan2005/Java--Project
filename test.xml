@@ -1,5 +1,3 @@
-
-
 <?xml version="1.0"?>
 <project name="Rectangle-Test" default="main" basedir=".">
   <property environment="env"/>
