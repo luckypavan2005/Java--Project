@@ -1,10 +1,8 @@
-
-
 pipeline {
 
   agent none
 
-stages {
+ stages {
   stage('Unit Test'){
     agent {
 	label 'apache'
@@ -15,7 +13,7 @@ stages {
     }
 
   }	
-  stage("build"){
+  stage("Build"){
      agent {
 	label 'apache'
      }
@@ -29,7 +27,7 @@ stages {
        }
      }
   }
-  stage("deploy"){
+  stage("Deploy"){
 	agent {
 	 label 'apache'
 	}
@@ -37,7 +35,7 @@ stages {
 	 sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
 	}
   } 
-  stage("Running on CentOS"){
+  stage("Testing on CentOS"){
 	agent {
 	 label 'CentOS'
 	}
@@ -46,8 +44,19 @@ stages {
 	 sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
 	}
 
-  } 		
-}
+  }
+  stage("Testing on Debian"){
+        agent {
+         docker 'openjdk:8u121-jre'
+        }
+        steps {
+         sh "wget http://luckypavan1.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
+        }
+
+  }
+ 		
+ }
 }
 
 
