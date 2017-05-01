@@ -30,25 +30,25 @@ import static org.junit.Assert.assertEquals;
                 }
 		
 		@Test
-                public void testGetArea() {
+                public void testGetArea1() {
 
                         assertEquals(myRectangle.getArea(), 30);
                 }
 
                 @Test
-                public void testGetPerimeter() {
+                public void testGetPerimeter1() {
 
                         assertEquals(myRectangle.getPerimeter(), 22);
                 }
 
                 @Test
-                public void testLength() {
+                public void testLength1() {
 
                         assertEquals(myRectangle.length, 5);
                 }
 
                 @Test
-                public void testWidth() {
+                public void testWidth1() {
 
                         assertEquals(myRectangle.width, 6);
                 }
